@@ -7,23 +7,7 @@ var city =document.querySelector("#city");
 
 
 
-//
-fetch('https:api.openweathermap.org/data/2.5/forecast?q=london&appid=b65989e90fc4ad90a1b707dc9c7726bd')
-.then(response => response.json())
-.then(data => {
-    for (let x = 1; x < 6; x++) {
-        document.getElementById("daymin"+x).innerHTML= "Min Temp: " + Math.round(data.list[x].main.temp_min - 273)+ "°C";
-    }
-    for (let x = 1; x < 6; x++) {
-        document.getElementById("daymax"+x).innerHTML= "Max Temp: " + Math.round(data.list[x].main.temp_max - 273)+ "°C";
-    }  
-    for(x = 1; x<6; x++){
-        document.getElementById("img" + (x)).src = "http://openweathermap.org/img/wn/"+
-        data.list[x].weather[0].icon
-        +".png";
-    } 
-})
-//
+
 
 
 
@@ -56,7 +40,7 @@ button.addEventListener("click",function (e) {
             data.list[x].weather[0].icon
             +".png";
         } 
-    }).catch(err => alert("Give a valid city Name"))
+    })
 
 })
 
